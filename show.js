@@ -13,9 +13,9 @@ function statement(invoice, plays){
 
 }
 
-function totalAmount(invoice){
+function totalAmount(){
     let result =0
-    for(let perf of invoice.performances){
+    for(let perf of invoices[0].performances){
         result+=amountFor(perf)
 
     }
@@ -24,7 +24,7 @@ function totalAmount(invoice){
 
 function totalVolumeCredits(){
     let result=0;
-    for(let perf of invoice.performances){
+    for(let perf of invoices[0].performances){
         result +=volumeCreditsFor(perf)
      }
      return result
