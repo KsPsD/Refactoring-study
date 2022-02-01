@@ -2,15 +2,19 @@ import plays from "./plays.js"
 import invoices from "./invoices.js" 
 function statement(invoice, plays){
     let totalAmount =0
-    let volumeCredits = 0
     let result =`청구 내역 (고객명: ${invoice.customer})\n`;
 
     for(let perf of invoice.performances){
-       volumeCredits +=volumeCreditsFor(perf)
 
        result+=`${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience} 석) \n`
        totalAmount +=amountFor(perf)
     }
+    
+    let volumeCredits = 0
+    for(let perf of invoice.performances){
+        volumeCredits +=volumeCreditsFor(perf)
+     }
+
     result+=`총액: ${usd(totalAmount)}\n`
     result+=`적립 포인트: ${volumeCredits}점 \n`
     return result;
@@ -36,13 +40,13 @@ function amountFor(aPerformance){
     let result = 0;
     switch(playFor(aPerformance).type){
         case "tragedy":
-               thisAmount = 40000;
+            result = 40000;
                if(aPerformance.audience>30){
                 result+=1000 * (aPerformance.audience -30);
                }
                break
         case "comedy":
-            thisAmount = 30000;
+            result = 30000;
             if(aPerformance.audience>20){
                 result +=10000 +500 * (aPerformance.audience -20);
             }
