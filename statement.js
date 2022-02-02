@@ -16,13 +16,6 @@ function renderPlainText(data, plays){
     result+=`적립 포인트: ${data.totalVolumeCredits}점 \n`
     return result;
 
-   
-    
-    function usd(aNumber){
-        return new Intl.NumberFormat('en-US', {style: "currency", currency: "USD", minimumFractionDigits: 2}).format(aNumber/100)
-    }
-    
-
 }
 
 function htmlStatement(invoice, plays){
@@ -43,9 +36,12 @@ function renderHtml(data){
     result+=`<p>적립 포인트: ${data.totalVolumeCredits}</em>점</p>\n`
     return result
 
-    function usd(aNumber){
-        return new Intl.NumberFormat('en-US', {style: "currency", currency: "USD", minimumFractionDigits: 2}).format(aNumber/100)
-    }
+    
 }
+
+function usd(aNumber){
+    return new Intl.NumberFormat('en-US', {style: "currency", currency: "USD", minimumFractionDigits: 2}).format(aNumber/100)
+}
+
 
 console.log(statement(invoices[0],plays))
