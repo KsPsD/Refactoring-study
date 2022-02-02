@@ -25,6 +25,13 @@ class PerformanceCalculator{
            }
            return result
         }
+    get volumeCredits(){
+        let result=0
+        result +=Math.max(aPerformance.audience -30 ,0);
+        if("comedy" === aPerformance.play.type) 
+        result +=Math.floor(aPerformance.audience / 5);
+        return result
+    }
 }
 
 
@@ -44,8 +51,8 @@ export default function createStatementData(invoice, plays){
         const calculator = new PerformanceCalculator(aPerformance , playFor(aPerformance));
         const result = Object.assign({}, aPerformance); //얕은 복사 수행
         result.play = calculator.play
-        result.amount = amountFor(result)
-        result.volumeCredits = volumeCreditsFor(result)
+        result.amount = calculator.amount;
+        result.volumeCredits = calculator.volumeCredits;
         return result
     }
 
@@ -53,17 +60,13 @@ export default function createStatementData(invoice, plays){
         return plays[aPerformance.playID]
     }
 
-function amountFor(aPerformance){
+    function amountFor(aPerformance){
     return new PerformanceCalculator(aPerformance, aPerformance.play).amount
-}
+    }
    
 
     function volumeCreditsFor(aPerformance){
-        let result=0
-        result +=Math.max(aPerformance.audience -30 ,0);
-        if("comedy" === aPerformance.play.type) 
-        result +=Math.floor(aPerformance.audience / 5);
-        return result
+       return new PerformanceCalculator(aPerformance, aPerformance.play).volumeCredits
     }
     
 
