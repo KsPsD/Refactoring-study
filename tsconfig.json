@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+      
+      "target": "es2015",
+      "allowJs": true,
+      "checkJs": true,
+      "noImplicitAny": true,
+      "lib": [ "es2015","dom", "esnext"]
+    },
+    "include": ["./*.ts"],
+    "exclude": [
+      "node_modules",
+     
+    ],
+}
+  

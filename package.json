@@ -1,7 +1,7 @@
 {
   "name": "refactoring",
   "version": "1.0.0",
-  "type": "module", 
+  "type": "module",
   "description": "",
   "main": "show.js",
   "scripts": {
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/KsPsD/Refactoring-study/issues"
   },
-  "homepage": "https://github.com/KsPsD/Refactoring-study#readme"
+  "homepage": "https://github.com/KsPsD/Refactoring-study#readme",
+  "dependencies": {
+    "core-js": "^3.21.0"
+  }
 }

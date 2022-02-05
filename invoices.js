@@ -1,17 +1,19 @@
-export default [
-    {"customer": "BigCo",
-    "performances":[
-        {
-            "playID": "hamlet",
-            "audience": 55
-        },
-        {
-            "playID":"as-like",
-            "audience": 35
-        },
-        {
-            "playID":"othello",
-            "audience":40
-        }
-    ]}
-]
+"use strict";
+exports.__esModule = true;
+exports["default"] = [
+    { "customer": "BigCo",
+        "performances": [
+            {
+                "playID": "hamlet",
+                "audience": 55
+            },
+            {
+                "playID": "as-like",
+                "audience": 35
+            },
+            {
+                "playID": "othello",
+                "audience": 40
+            }
+        ] }
+];
